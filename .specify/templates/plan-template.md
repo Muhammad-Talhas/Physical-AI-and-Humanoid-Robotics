@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] **Technical Accuracy**: All technical aspects must be rooted in current robotics, AI, and mechatronics research.
+- [ ] **Clarity and Accessibility**: The content must be clear and accessible for undergraduate and early-graduate learners.
+- [ ] **Practical Applicability**: Include practical applicability through examples, diagrams, and hands-on exercises.
+- [ ] **Conceptual Integrity**: Physical AI must be explained as embodied intelligence, not merely software-based AI.
+- [ ] **Consistency**: Maintain consistency across chapters in terminology, tone, and structure.
 
 ## Project Structure
 

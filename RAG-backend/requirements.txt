@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pydantic-settings
+asyncpg
+sqlalchemy
+langchain
+qdrant-client

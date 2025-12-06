@@ -1,0 +1,92 @@
+---
+id: ch10-motion-planning-control
+title: Motion Planning & Control for Humanoids
+sidebar_label: Motion Planning & Control
+---
+
+## Learning Objectives
+
+- Understand the challenges of motion planning for high-DOF humanoid robots.
+- Explore common motion planning algorithms (e.g., sampling-based, optimization-based).
+- Learn about whole-body control strategies for balancing and manipulation.
+- Discuss reactive control and compliance for safe human-robot interaction.
+
+## Overview
+
+Motion planning and control are central to enabling humanoids to move and interact intelligently within their environments. This chapter delves into the complexities of generating feasible and safe motions for high-degrees-of-freedom (DOF) humanoid robots, covering both planning algorithms and advanced control strategies for balance, manipulation, and compliant interaction.
+
+## Challenges in Humanoid Motion Planning
+
+Humanoid robots present unique challenges for motion planning due to their high dimensionality, complex dynamics, balance constraints, and interaction with unstructured environments.
+
+*   **High Degrees of Freedom (DOF)**: Many joints mean a vast configuration space, making comprehensive exploration difficult.
+*   **Balance and Stability**: Maintaining balance is critical, requiring consideration of the Zero Moment Point (ZMP) or Centroidal Momentum.
+*   **Contact with Environment**: Planning for footsteps, hand contacts, and pushing against surfaces adds complexity.
+*   **Dynamic Constraints**: Joint limits, velocity, and acceleration limits must be respected.
+*   **Collision Avoidance**: Avoiding self-collisions and collisions with the environment.
+
+## Motion Planning Algorithms
+
+Various algorithms are employed to find collision-free paths for robots.
+
+### Sampling-Based Planners
+
+*   **Rapidly-exploring Random Trees (RRT/RRT*)**: Explore the configuration space by randomly sampling points and connecting them to the tree. Effective for high-DOF systems.
+*   **Probabilistic Roadmaps (PRM)**: Constructs a roadmap of free configurations, then searches this roadmap for a path.
+
+### Optimization-Based Planners
+
+*   **Model Predictive Control (MPC)**: Optimizes a sequence of control inputs over a finite horizon, recalculating at each step. Suitable for dynamic tasks.
+*   **Trajectory Optimization**: Directly optimizes a trajectory to minimize cost (e.g., time, energy) while satisfying constraints.
+
+### Task and Motion Planning (TAMP)
+
+For complex tasks involving manipulation and reasoning, TAMP combines symbolic AI planning (for high-level tasks) with geometric motion planning (for low-level movements).
+
+## Whole-Body Control Strategies
+
+Whole-body control (WBC) coordinates all of a humanoid's joints to achieve multiple objectives simultaneously, such as balance, posture, and end-effector tasks.
+
+### Inverse Kinematics (IK)
+
+IK calculates the joint angles required to achieve a desired end-effector pose. Essential for manipulation tasks where the hand needs to reach a specific point in space.
+
+### Operational Space Control
+
+Controls the robot's motion in a task-space (e.g., Cartesian space for end-effector position and orientation) rather than joint space, often using a null-space projector to simultaneously achieve secondary tasks (like maintaining balance or avoiding joint limits).
+
+### Balance Control
+
+*   **Zero Moment Point (ZMP)**: A classical concept for bipedal locomotion, ensuring the robot's center of pressure remains within its support polygon.
+*   **Centroidal Dynamics**: Focuses on the dynamics of the robot's center of mass and angular momentum for more agile and dynamic behaviors.
+
+## Reactive Control and Compliance
+
+For safe and robust interaction with humans and unstructured environments, humanoids need reactive and compliant control capabilities.
+
+### Force Control and Impedance Control
+
+*   **Force Control**: Directly controls the forces exerted by the robot's end-effector. Useful for tasks like pushing buttons or inserting pegs.
+*   **Impedance Control**: Controls the robot's dynamic relationship (stiffness, damping) with the environment. Allows the robot to be compliant and yield to external forces, crucial for safe physical human-robot interaction.
+
+### Disturbance Rejection
+
+Mechanisms to quickly react to unexpected external forces or ground irregularities to maintain stability and continue task execution.
+
+## Integration with ROS 2 and MoveIt
+
+**MoveIt 2** is the most widely used software for mobile manipulation in ROS 2. It provides an easy-to-use interface for motion planning, manipulation, and integration with different robot platforms and sensors.
+
+*   **Planning Scene**: Represents the robot's environment, including detected obstacles.
+*   **Motion Planning Pipeline**: Integrates various planning algorithms.
+*   **Controllers**: Interfaces with `ros2_control` to execute planned trajectories.
+
+## Summary
+
+This chapter explored the intricate world of motion planning and control for humanoid robots. We discussed the inherent challenges of high-DOF systems, surveyed various motion planning algorithms, and delved into whole-body control strategies for achieving balance and complex manipulation. The importance of reactive and compliant control for safe interaction was highlighted, along with how tools like MoveIt 2 facilitate these capabilities. This knowledge is fundamental for bringing humanoids to life with intelligent and robust physical actions.
+
+## Exercises
+
+1.  **Algorithm Comparison**: Compare and contrast RRT and PRM planning algorithms. For what types of environments or tasks would you choose one over the other?
+2.  **Whole-Body Control Scenario**: Imagine a humanoid robot needs to pick up a delicate object while walking. Describe how whole-body control, inverse kinematics, and balance control might be coordinated to achieve this task safely.
+3.  **MoveIt 2 Research**: Research how MoveIt 2 handles collision detection during motion planning. What are the common collision checking methods it employs?

@@ -1,0 +1,81 @@
+---
+id: ch9-perception-for-humanoids
+title: Perception for Humanoids (Vision & Sensors)
+sidebar_label: Perception for Humanoids
+---
+
+## Learning Objectives
+
+- Understand the role of perception in humanoid robotics.
+- Explore common vision sensors and their applications in humanoids.
+- Learn about non-vision sensors and their importance for physical AI.
+- Discuss challenges and techniques for fusing multi-modal sensor data.
+
+## Overview
+
+Perception is the foundation upon which intelligent robotic behavior is built. For humanoids, accurately perceiving the environment and their own body state is critical for safe interaction, manipulation, and navigation. This chapter delves into the various sensors used in humanoid robotics, focusing on both vision-based and non-vision-based modalities, and techniques for integrating their data.
+
+## The Role of Perception in Humanoid Robotics
+
+Humanoids operate in complex, dynamic, and often human-centric environments. Effective perception allows them to:
+
+*   **Understand the Environment**: Identify objects, detect obstacles, recognize people, and map their surroundings.
+*   **Self-Perception**: Monitor their own body configuration, joint angles, contact forces, and balance.
+*   **Interaction**: Interpret human gestures, expressions, and intentions during collaborative tasks.
+*   **Navigation**: Localize themselves, plan paths, and avoid collisions.
+*   **Manipulation**: Grasp objects, perform dexterous tasks, and interact with tools.
+
+## Vision Sensors for Humanoids
+
+Vision is arguably the most powerful sensory modality for humanoids, providing rich information about the visual world.
+
+### Types of Vision Sensors
+
+*   **Monocular Cameras**: Provide 2D image data. Used for object recognition, human detection, visual servoing.
+*   **Stereo Cameras**: Mimic human binocular vision to provide depth information. Essential for 3D reconstruction, obstacle avoidance, and grasping.
+*   **RGB-D Cameras**: Combine an RGB camera with a depth sensor (e.g., structured light, time-of-flight) to directly provide color and depth per pixel. Popular for indoor 3D mapping and object manipulation.
+*   **Event Cameras**: Biologically inspired sensors that only report changes in pixel intensity, offering high dynamic range and low latency, useful for fast motion.
+
+### Vision-based Perception Tasks
+
+*   **Object Detection and Recognition**: Identifying specific objects in the scene.
+*   **Segmentation**: Delineating objects or regions of interest within an image.
+*   **3D Reconstruction**: Building a 3D model of the environment or objects.
+*   **Visual Odometry / SLAM**: Estimating the robot's motion and building a map of its surroundings using visual input.
+*   **Human Pose Estimation**: Detecting and tracking human body joints for interaction.
+
+## Non-Vision Sensors for Physical AI
+
+While vision is crucial, humanoids rely on a suite of other sensors for comprehensive environmental and self-perception.
+
+### Types of Non-Vision Sensors
+
+*   **Inertial Measurement Units (IMUs)**: Combine accelerometers and gyroscopes to measure angular velocity and linear acceleration. Critical for balance, locomotion, and estimating orientation.
+*   **Force/Torque Sensors**: Measure forces and torques applied at specific points (e.g., robot wrists, feet). Essential for tactile interaction, grasping force control, and balancing.
+*   **Tactile Sensors**: Provide localized contact information, often arrays of pressure sensors. Used for delicate manipulation, surface texture recognition, and slip detection.
+*   **Proximity Sensors (LiDAR, Ultrasonic)**: Measure distances to objects. LiDAR (Light Detection and Ranging) provides 2D or 3D point clouds for mapping and navigation. Ultrasonic sensors are simpler for short-range obstacle detection.
+*   **Encoders**: Measure the angular position or velocity of joints. Fundamental for precise joint control and kinematic state estimation.
+
+## Multi-Modal Sensor Fusion
+
+No single sensor provides a complete picture of the world. Humanoids achieve robust perception by fusing data from multiple sensor modalities. Sensor fusion combines information from different sensors to obtain a more accurate, reliable, and comprehensive understanding than any individual sensor could provide.
+
+### Techniques for Sensor Fusion
+
+*   **Kalman Filters / Extended Kalman Filters (EKF)**: Probabilistic frameworks for estimating system states from noisy sensor measurements.
+*   **Particle Filters**: Non-parametric probabilistic filters suitable for non-linear systems.
+*   **Deep Learning (Neural Networks)**: End-to-end learning approaches that can directly process and fuse raw sensor data (e.g., concatenating image features with IMU data).
+
+### Example: Visual-Inertial Odometry (VIO)
+
+VIO combines camera images (visual features) with IMU data (accelerations, angular velocities) to provide highly accurate and robust estimates of a robot's pose and motion, even in challenging environments where vision alone might fail.
+
+## Summary
+
+Perception is a cornerstone of humanoid robotics, enabling intelligent and adaptive behavior. This chapter explored the diverse array of vision and non-vision sensors employed by humanoids, from cameras providing rich visual information to IMUs ensuring balance and force sensors enabling delicate interaction. We also highlighted the importance of multi-modal sensor fusion techniques for creating a holistic and robust understanding of the robot's internal and external states. The next chapter will build on this by discussing how this perceived information is used for motion planning and control.
+
+## Exercises
+
+1.  **Sensor Selection**: For a humanoid robot designed to assist in a household environment, list the essential sensors it would need and justify your choices for each, explaining its role in perception.
+2.  **Sensor Fusion Scenario**: Describe a scenario where fusing data from a stereo camera and a force-torque sensor would be critical for a humanoid manipulation task. What kind of information would each sensor provide, and how would their data be combined?
+3.  **Research**: Explore recent advancements in tactile sensing for humanoid robot hands. How do these new technologies contribute to dexterous manipulation and human-robot interaction?

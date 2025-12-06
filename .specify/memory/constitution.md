@@ -1,55 +1,87 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Version change: None -> 0.1.0
+List of modified principles:
+  - Added "Technical Accuracy"
+  - Added "Clarity and Accessibility"
+  - Added "Practical Applicability"
+  - Added "Conceptual Integrity"
+  - Added "Consistency"
+Added sections:
+  - Key Standards
+  - Constraints
+  - Content Scope Requirements
+  - Success Criteria
+Removed sections: None
+Templates requiring updates:
+  - .specify/templates/plan-template.md: ✅ updated
+  - .specify/templates/spec-template.md: ✅ updated
+  - .specify/templates/tasks-template.md: ✅ updated
+  - .specify/templates/commands/sp.constitution.md: ✅ updated
+Follow-up TODOs: None
+-->
+# Physical AI and Humanoid Robotics Textbook Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Technical Accuracy
+Technical accuracy rooted in current robotics, AI, and mechatronics research.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Clarity and Accessibility
+Clarity and accessibility for undergraduate and early-graduate learners.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Practical Applicability
+Practical applicability through examples, diagrams, and hands-on exercises.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Conceptual Integrity
+Physical AI explained as embodied intelligence, not merely software-based AI.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Consistency
+Consistency across chapters in terminology, tone, and structure.
 
-### [PRINCIPLE_6_NAME]
+## Key Standards
 
+- All technical definitions must be cross-checked with credible robotics/AI literature (IEEE, ACM, Springer, MIT Press).
+- Use consistent terminology for humanoid robotics, control systems, sensors, and Physical AI frameworks.
+- Visual explanations (diagrams, flowcharts, pseudocode) required where beneficial.
+- Citation format: IEEE Style.
+- 40% of sources must be peer-reviewed research papers or academic books.
+- All mathematical formulas must be validated and tested for correctness.
+- All code snippets (Python, ROS, etc.) must be runnable and verified.
 
-[PRINCIPLE__DESCRIPTION]
+## Constraints
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+- Total length: ~40,000 to 60,000 words.
+- Structure: 10–14 chapters + glossary + index.
+- Format: Docusaurus-compatible Markdown files.
+- Must be fully buildable using Spec-Kit Plus and deployable on GitHub Pages.
+- Each chapter starts with learning objectives and ends with summary + exercises.
+- Avoid overuse of advanced jargon unless defined clearly inside the text.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Content Scope Requirements
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- Coverage must include:
+  - Foundations of Physical AI & embodied intelligence.
+  - Humanoid robot anatomy (mechanical + electrical subsystems).
+  - Sensors, actuators, and locomotion systems.
+  - Control theory basics for humanoids.
+  - Perception, vision, and motion planning.
+  - Human-robot interaction (HRI) principles.
+  - Safety, ethics, and real-world deployment.
+  - Practical labs using simulation tools (e.g., Gazebo, Webots) or ROS.
+  - Emerging trends: soft robotics, bio-inspired AI, and autonomous humanoid agents.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Success Criteria
+
+- Book compiles without errors in Docusaurus.
+- Content is technically accurate and up-to-date.
+- All chapters maintain consistent structure and writing style.
+- Students can follow concepts without prior deep robotics knowledge.
+- Hands-on activities are testable and produce expected outputs.
+- Peer reviewers (or instructors) find no major conceptual errors.
+- The book serves as a strong foundation for a beginner-to-intermediate Robotics/AI course.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other practices. Amendments require documentation, approval, and a migration plan. All PRs/reviews must verify compliance. Complexity must be justified.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 0.1.0 | **Ratified**: 2025-12-04 | **Last Amended**: 2025-12-04

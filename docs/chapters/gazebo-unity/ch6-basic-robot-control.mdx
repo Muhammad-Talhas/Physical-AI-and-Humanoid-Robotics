@@ -1,0 +1,155 @@
+---
+id: ch6-basic-robot-control
+title: Basic Robot Control in Simulation
+sidebar_label: Basic Robot Control
+---
+
+## Learning Objectives
+
+- Understand the concepts of robot control architectures.
+- Implement basic open-loop control for simulated robots.
+- Utilize ROS 2 controllers for joint and mobile robot control in Gazebo.
+- Interpret sensor feedback for simple closed-loop control.
+
+## Overview
+
+Controlling a robot involves translating desired behaviors into commands that its actuators can execute. This chapter focuses on fundamental robot control concepts within a simulation environment. We will explore both open-loop and simple closed-loop control strategies, leveraging ROS 2 and Gazebo for practical implementation of simulated robot control.
+
+## Robot Control Architectures
+
+Robot control systems can range from simple open-loop commands to complex hierarchical architectures involving perception, planning, and feedback. Understanding these architectures is key to designing effective robot behaviors.
+
+### Open-Loop Control
+
+In open-loop control, commands are sent to the robot without using any sensor feedback to verify if the desired state has been achieved. It's simple but prone to errors due to disturbances or inaccurate models.
+
+*   **Example**: Sending a fixed velocity command to a motor for a set duration, assuming it will travel a certain distance.
+
+### Closed-Loop Control (Feedback Control)
+
+Closed-loop control uses sensor feedback to compare the robot's actual state with its desired state. The difference (error) is then used to adjust the control commands, allowing the robot to correct itself and achieve more robust performance.
+
+*   **Example**: Using wheel encoder feedback to precisely control the distance a mobile robot travels.
+
+## ROS 2 Control Stack in Gazebo
+
+ROS 2 provides a powerful control framework, `ros2_control`, which simplifies the task of controlling robots with various hardware interfaces. In simulation, `ros2_control` can interact with Gazebo's physics engine to actuate simulated joints and robots.
+
+### Key Components
+
+*   **Controller Manager**: A central node that loads, starts, stops, and manages different robot controllers.
+*   **Hardware Interface**: Abstracts the robot's hardware (or simulated hardware in Gazebo), providing a consistent interface for controllers.
+*   **Controllers**: Implement specific control logic (e.g., Joint Trajectory Controller for manipulators, Diff Drive Controller for mobile robots).
+
+### Example: Differential Drive Robot Control (Conceptual)
+
+For a mobile robot with two driving wheels (differential drive), a common approach is to use a `diff_drive_controller`. This controller subscribes to `cmd_vel` messages (linear and angular velocity) and publishes `odom` (odometry) information.
+
+## Implementing Basic Open-Loop Control
+
+### Sending Velocity Commands (Conceptual ROS 2 Publisher)
+
+To move a simulated differential drive robot, we can publish `geometry_msgs/msg/Twist` messages to its `cmd_vel` topic.
+
+```python
+# conceptual_cmd_vel_publisher.py
+
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+import time
+
+class CmdVelPublisher(Node):
+
+    def __init__(self):
+        super().__init__('cmd_vel_publisher')
+        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
+        self.timer = self.create_timer(0.1, self.publish_cmd_vel)
+        self.get_logger().info('CmdVel Publisher has started.')
+
+    def publish_cmd_vel(self):
+        twist = Twist()
+        twist.linear.x = 0.2  # Move forward at 0.2 m/s
+        twist.angular.z = 0.0 # No rotation
+        self.publisher_.publish(twist)
+        self.get_logger().info(f'Publishing linear: {twist.linear.x}, angular: {twist.angular.z}')
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = CmdVelPublisher()
+    rclpy.spin_once(node, timeout_sec=1.0) # Publish for a short duration
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+This simple publisher sends a constant forward velocity command. The robot will move until the node is shut down or stops publishing.
+
+## Utilizing ROS 2 Controllers in Gazebo
+
+To use `ros2_control` in Gazebo, your robot's URDF/SDF needs to include specific tags to define its hardware interface and link to controller configurations. You then launch the Gazebo simulation and the `ros2_control` controller manager, followed by spawning the desired controllers.
+
+### Steps for Controller Integration (Conceptual)
+
+1.  **URDF/SDF Modification**: Add `<ros2_control>` tags to your robot model, specifying interfaces (e.g., `JointStateInterface`, `VelocityJointInterface`).
+2.  **Controller Configuration**: Create YAML files defining the parameters for your `diff_drive_controller` or `joint_trajectory_controller`.
+3.  **Launch Files**: Use ROS 2 launch files to:
+    *   Start Gazebo with your robot.
+    *   Spawn the `ros2_control` controller manager.
+    *   Load and activate your specific robot controllers.
+
+## Interpreting Sensor Feedback for Simple Closed-Loop Control
+
+For closed-loop control, a node subscribes to sensor feedback (e.g., `odom` for mobile robots, joint states for manipulators) and adjusts commands based on the desired state.
+
+### Odometry Subscriber (Conceptual ROS 2 Subscriber)
+
+```python
+# conceptual_odom_subscriber.py
+
+import rclpy
+from rclpy.node import Node
+from nav_msgs.msg import Odometry
+
+class OdometrySubscriber(Node):
+
+    def __init__(self):
+        super().__init__('odometry_subscriber')
+        self.subscription = self.create_subscription(
+            Odometry,
+            '/odom',
+            self.odom_callback,
+            10)
+        self.subscription  # prevent unused variable warning
+        self.current_x = 0.0
+        self.current_y = 0.0
+
+    def odom_callback(self, msg):
+        self.current_x = msg.pose.pose.position.x
+        self.current_y = msg.pose.pose.position.y
+        self.get_logger().info(f'Current position: x={self.current_x:.2f}, y={self.current_y:.2f}')
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = OdometrySubscriber()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
+```
+
+By combining the `CmdVelPublisher` and `OdometrySubscriber` into a single control node, one could implement a simple proportional controller to drive to a target position, adjusting velocity based on the error to the goal.
+
+## Summary
+
+This chapter laid the groundwork for controlling simulated robots. We differentiated between open-loop and closed-loop control, introduced the ROS 2 control stack for managing robot hardware interfaces and controllers in Gazebo, and provided conceptual examples for implementing basic control strategies. The principles learned here are transferable to more advanced control problems and real robot systems.
+
+## Exercises
+
+1.  **PID Controller Research**: Research the basics of PID (Proportional-Integral-Derivative) control. Explain how a PID controller could be used to precisely control a robot's wheel velocity based on encoder feedback.
+2.  **Go-to-Goal Node Design**: Design a ROS 2 Python node that implements a simple open-loop "go-to-goal" behavior for a differential drive robot in Gazebo. The node should publish `Twist` messages to move the robot towards a fixed target point.
+3.  **Integrated Control Node**: (Advanced) Combine the concepts from the `CmdVelPublisher` and `OdometrySubscriber` to create a single node that attempts a basic closed-loop control to reach a target (e.g., a specific X, Y coordinate), stopping when close enough.

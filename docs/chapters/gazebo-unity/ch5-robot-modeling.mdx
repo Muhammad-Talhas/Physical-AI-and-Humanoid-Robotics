@@ -1,0 +1,147 @@
+---
+id: ch5-robot-modeling
+title: Robot Modeling (URDF/SDF) in Gazebo
+sidebar_label: Robot Modeling (URDF/SDF)
+---
+
+## Learning Objectives
+
+- Understand the purpose and structure of URDF (Unified Robot Description Format) and SDF (Simulation Description Format).
+- Create simple robot models using URDF.
+- Convert URDF models to SDF for Gazebo simulation.
+- Integrate custom robot models into Gazebo environments.
+
+## Overview
+
+To simulate robots effectively in Gazebo, we need accurate digital representations of their physical properties. This chapter introduces two crucial XML-based formats for robot description: URDF and SDF. We will learn how to create and manage robot models using these formats and integrate them into Gazebo for simulation.
+
+## URDF: Unified Robot Description Format
+
+URDF (Unified Robot Description Format) is an XML format used in ROS to describe all aspects of a robot, including its kinematic and dynamic properties, visual appearance, and collision geometry. While URDF is primarily designed for use with ROS, it can be converted to SDF for Gazebo simulation.
+
+### Key Components of URDF
+
+*   **Link**: Represents a rigid body of the robot (e.g., a robot arm segment, a wheel).
+    *   `visual`: Defines the visual properties (mesh, color) of the link.
+    *   `collision`: Defines the collision geometry of the link.
+    *   `inertial`: Defines the mass and inertia properties of the link.
+*   **Joint**: Represents the connection between two links, defining their relative motion (e.g., revolute, prismatic, fixed).
+    *   `parent`: The parent link of the joint.
+    *   `child`: The child link of the joint.
+    *   `type`: The type of joint (e.g., `revolute`, `continuous`, `prismatic`, `fixed`, `floating`, `planar`).
+    *   `origin`: The pose of the child link relative to the parent link.
+
+### Example: Simple Two-Link Robot (Conceptual URDF)
+
+```xml
+<?xml version="1.0"?>
+<robot name="simple_robot">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.6 0.4 0.2"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.6 0.4 0.2"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="10"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+        <cylinder radius="0.1" length="0.5"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder radius="0.1" length="0.5"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+  </link>
+
+  <joint name="joint1" type="revolute">
+    <parent link="base_link"/>
+    <child link="link1"/>
+    <origin xyz="0 0 0.3" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-3.14" upper="3.14" effort="100" velocity="100"/>
+  </joint>
+
+</robot>
+```
+
+## SDF: Simulation Description Format
+
+SDF (Simulation Description Format) is an XML format designed specifically for describing objects and environments for robot simulators like Gazebo. It is a more comprehensive format than URDF, capable of describing not only robots but also worlds, lights, and sensors directly.
+
+### Key Advantages of SDF over URDF
+
+*   **Full World Description**: SDF can describe entire environments, including static objects, terrains, and light sources.
+*   **Joint Damping and Friction**: Directly supports parameters for realistic joint behavior.
+*   **Physics Properties**: More extensive physics properties can be defined.
+*   **Nested Models**: Supports nesting models within other models.
+
+### Converting URDF to SDF
+
+Gazebo often prefers SDF models. You can convert a URDF file to SDF using `ros2 run` utilities, typically through the `urdf_to_sdf` package or by directly loading URDF in Gazebo, which performs an internal conversion.
+
+```bash
+# Example (conceptual, actual command may vary based on ROS 2 version)
+ros2 run urdf_to_sdf urdf_to_sdf your_robot.urdf your_robot.sdf
+```
+
+## Integrating Custom Robot Models into Gazebo
+
+Once you have your robot model in SDF format (either created directly or converted from URDF), you can integrate it into Gazebo.
+
+### Method 1: Inserting via GUI
+
+Save your `.sdf` file in a location accessible to Gazebo (e.g., in a Gazebo model path). You can then insert it using the Gazebo GUI's "Insert" tab.
+
+### Method 2: Including in a World File
+
+You can define a custom Gazebo world `.world` file (which is also an SDF XML file) and include your robot model within it.
+
+```xml
+<!-- my_custom_world.world -->
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="my_world">
+    <include>
+      <uri>model://your_robot_model_directory</uri>
+    </include>
+    <!-- Other world elements like ground plane, lights etc. -->
+  </world>
+</sdf>
+```
+
+### Method 3: Spawning with ROS 2
+
+You can use `ros2 spawn_entity.py` to spawn an SDF or URDF model into a running Gazebo simulation from a launch file or command line.
+
+```bash
+# Example
+ros2 run gazebo_ros spawn_entity.py -entity my_robot -file my_robot.sdf -x 0 -y 0 -z 1
+```
+
+## Summary
+
+This chapter provided an in-depth look at robot modeling using URDF and SDF, essential formats for creating digital twins of robots. We covered the structure of these files, how to create basic robot descriptions, and various methods for integrating these custom models into Gazebo. With this knowledge, you are equipped to design and simulate your own robotic platforms.
+
+## Exercises
+
+1.  **URDF Creation**: Create a URDF file for a simple three-link robotic arm (base, arm1, arm2) with revolute joints. Define its visual, collision, and inertial properties.
+2.  **SDF Conversion**: If `urdf_to_sdf` is available in your ROS 2 environment, convert your three-link arm URDF to an SDF file.
+3.  **Gazebo Integration**: Launch an empty Gazebo world and spawn your robot model (either URDF or SDF) using `ros2 spawn_entity.py`. Experiment with its placement.

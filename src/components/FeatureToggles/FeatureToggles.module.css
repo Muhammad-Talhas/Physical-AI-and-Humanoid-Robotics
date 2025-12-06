@@ -1,0 +1,38 @@
+.togglesContainer {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin: 1rem 0;
+}
+
+.toggleItem {
+  margin-bottom: 1rem;
+}
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.toggleInput {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+.toggleDescription {
+  margin: 0.25rem 0 0 1.5rem; /* Indent description under the toggle */
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.infoText {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+}
