@@ -1,0 +1,17 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f59e0b" fill-opacity="0.1"/>
+  <circle cx="200" cy="150" r="100" fill="#6366f1" fill-opacity="0.2"/>
+  <rect x="80" y="120" width="80" height="60" fill="#6366f1" fill-opacity="0.6" rx="5"/>
+  <rect x="240" y="120" width="80" height="60" fill="#10b981" fill-opacity="0.6" rx="5"/>
+  <text x="120" y="155" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">Node A</text>
+  <text x="280" y="155" text-anchor="middle" fill="white" font-size="12" font-family="Arial" font-weight="bold">Node B</text>
+  <line x1="160" y1="150" x2="240" y2="150" stroke="#374151" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#374151"/>
+    </marker>
+  </defs>
+  <text x="200" y="120" text-anchor="middle" fill="#1e293b" font-size="14" font-family="Arial" font-weight="bold">ROS2 Communication</text>
+  <circle cx="200" cy="100" r="15" fill="#ef4444"/>
+  <text x="200" y="105" text-anchor="middle" fill="white" font-size="10" font-family="Arial">Topic</text>
+</svg>

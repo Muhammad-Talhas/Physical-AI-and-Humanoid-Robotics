@@ -1,0 +1,16 @@
+<svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#8b5cf6" fill-opacity="0.1"/>
+  <rect x="50" y="100" width="300" height="100" fill="#f472b6" fill-opacity="0.2" rx="10" stroke="#e9d5ff" stroke-width="2"/>
+  <circle cx="100" cy="150" r="20" fill="#10b981" fill-opacity="0.7"/>
+  <circle cx="150" cy="150" r="20" fill="#f59e0b" fill-opacity="0.7"/>
+  <circle cx="200" cy="150" r="20" fill="#ef4444" fill-opacity="0.7"/>
+  <circle cx="250" cy="150" r="20" fill="#3b82f6" fill-opacity="0.7"/>
+  <circle cx="300" cy="150" r="20" fill="#fbbf24" fill-opacity="0.7"/>
+  <text x="200" y="80" text-anchor="middle" fill="#1e293b" font-size="18" font-family="Arial" font-weight="bold">Sensor Data</text>
+  <text x="200" y="240" text-anchor="middle" fill="#1e293b" font-size="14" font-family="Arial">Point Cloud Visualization</text>
+  <g stroke="#1e293b" stroke-width="1" fill="none">
+    <circle cx="200" cy="150" r="25"/>
+    <circle cx="200" cy="150" r="45"/>
+    <circle cx="200" cy="150" r="65"/>
+  </g>
+</svg>

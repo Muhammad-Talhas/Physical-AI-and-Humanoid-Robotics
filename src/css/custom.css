@@ -6,25 +6,129 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #6366f1; /* Indigo */
+  --ifm-color-primary-dark: #4f46e5; /* Indigo Dark */
+  --ifm-color-primary-darker: #4338ca; /* Indigo Darker */
+  --ifm-color-primary-darkest: #3730a3; /* Indigo Darkest */
+  --ifm-color-primary-light: #818cf8; /* Indigo Light */
+  --ifm-color-primary-lighter: #a5b4fc; /* Indigo Lighter */
+  --ifm-color-primary-lightest: #c7d2fe; /* Indigo Lightest */
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(99, 102, 241, 0.15);
+
+  /* Modern vibrant accent colors */
+  --ifm-color-accent: #f472b6; /* Pink */
+  --ifm-color-accent-secondary: #f59e0b; /* Amber */
+  --ifm-color-success: #10b981; /* Emerald */
+  --ifm-color-warning: #f59e0b; /* Amber */
+  --ifm-color-danger: #ef4444; /* Red */
+
+  /* Modern card and container styling */
+  --ifm-card-background-color: #ffffff;
+  --ifm-card-border-radius: 1rem;
+  --ifm-card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Modern button styling */
+  --ifm-button-border-radius: 0.5rem;
+  --ifm-button-padding-vertical: 0.75rem;
+  --ifm-button-padding-horizontal: 1.5rem;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #818cf8; /* Lighter Indigo for dark mode */
+  --ifm-color-primary-dark: #6366f1; /* Indigo */
+  --ifm-color-primary-darker: #4f46e5; /* Indigo Dark */
+  --ifm-color-primary-darkest: #4338ca; /* Indigo Darker */
+  --ifm-color-primary-light: #a5b4fc; /* Indigo Light */
+  --ifm-color-primary-lighter: #c7d2fe; /* Indigo Lighter */
+  --ifm-color-primary-lightest: #e0e7ff; /* Indigo Lightest */
+  --docusaurus-highlighted-code-line-bg: rgba(99, 102, 241, 0.2);
+
+  /* Dark mode specific colors */
+  --ifm-card-background-color: #1f2937;
+  --ifm-background-color: #111827;
+  --ifm-background-surface-color: #1f2937;
+}
+
+/* Modern card styling for better visual hierarchy */
+.card {
+  transition: all 0.3s ease;
+  border: none;
+  box-shadow: var(--ifm-card-shadow);
+  border-radius: var(--ifm-card-border-radius);
+  background-color: var(--ifm-card-background-color);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Modern button styling */
+.button {
+  border-radius: var(--ifm-button-border-radius);
+  padding: var(--ifm-button-padding-vertical) var(--ifm-button-padding-horizontal);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Modern code block styling */
+.prism-code {
+  border-radius: 0.5rem;
+  font-size: 0.9em;
+}
+
+/* Modern navbar styling */
+.navbar {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* Modern hero banner styling */
+.hero {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, transparent 50%),
+              radial-gradient(circle at bottom left, rgba(255,255,255,0.1) 0%, transparent 50%);
+}
+
+.hero__title {
+  font-weight: 800;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Modern feature section styling */
+.features_src-components-HomepageFeatures-styles-module {
+  background: linear-gradient(to bottom, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Modern link styling */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

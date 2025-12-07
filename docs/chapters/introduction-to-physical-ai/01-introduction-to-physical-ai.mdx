@@ -1,0 +1,135 @@
+---
+title: Introduction to Physical AI
+sidebar_label: 1. Introduction to Physical AI
+---
+
+import ImageGallery from '@site/src/components/ImageGallery';
+
+## Learning Objectives
+
+- Understand the fundamental concepts of Physical AI
+- Distinguish Physical AI from traditional AI approaches
+- Explore the intersection of AI and physical systems
+- Identify applications and challenges in Physical AI
+
+## Overview
+
+Physical AI represents a paradigm shift from traditional AI that primarily processes abstract data to AI systems that interact with and understand the physical world. This chapter introduces the core concepts, challenges, and opportunities in Physical AI, laying the foundation for understanding how AI can be applied to physical systems, robots, and real-world environments.
+
+<ImageGallery
+  title="Physical AI Concepts"
+  images={[
+    {
+      src: '/img/gallery/robot-visualization.svg',
+      alt: 'Physical AI Systems',
+      caption: 'Representation of AI systems interacting with physical environments'
+    },
+    {
+      src: '/img/gallery/sensor-data.svg',
+      alt: 'Sensor Integration',
+      caption: 'How Physical AI processes real-world sensor data'
+    },
+    {
+      src: '/img/gallery/motion-planning.svg',
+      alt: 'Physical World Modeling',
+      caption: 'AI understanding and modeling of physical systems'
+    }
+  ]}
+/>
+
+## 1.1 Introduction to Physical AI
+
+Physical AI is an interdisciplinary field that combines artificial intelligence with physics, engineering, and robotics to create systems that can understand, interact with, and operate within the physical world. Unlike traditional AI systems that primarily process symbolic or abstract data, Physical AI systems must account for the complexities, uncertainties, and continuous nature of physical environments.
+
+### Key Characteristics of Physical AI
+
+- **Embodiment**: Systems have physical form and interact with the real world
+- **Real-time Processing**: Must respond to physical changes in real-time
+- **Uncertainty Management**: Deals with sensor noise, actuator limitations, and environmental uncertainties
+- **Physical Constraints**: Must respect laws of physics and mechanical limitations
+- **Multi-modal Sensing**: Integrates various sensor modalities (vision, touch, proprioception)
+
+## 1.2 Physical AI vs Traditional AI
+
+Traditional AI systems typically operate on well-defined, discrete data sets in controlled environments. Physical AI, on the other hand, must navigate the continuous, uncertain, and dynamic nature of the physical world.
+
+### Differences Summary:
+
+| Traditional AI | Physical AI |
+|----------------|-------------|
+| Discrete, symbolic data | Continuous, multi-modal sensor data |
+| Controlled environments | Unpredictable physical environments |
+| Batch processing | Real-time processing |
+| Perfect information (often) | Noisy, incomplete information |
+| No physical constraints | Subject to physics and mechanics |
+
+## 1.3 Historical Development of Physical AI
+
+The evolution of Physical AI can be traced through several key developments:
+
+- **Early Robotics (1950s-1970s)**: Simple mechanical systems with basic control
+- **AI Planning (1980s-1990s)**: Introduction of symbolic reasoning in physical tasks
+- **Sensor Integration (2000s)**: Multi-sensor systems and perception
+- **Machine Learning Integration (2010s)**: Learning from physical interaction
+- **Modern Physical AI (2020s)**: Large-scale integration with deep learning and simulation
+
+## 1.4 Core Challenges in Physical AI
+
+Physical AI faces several unique challenges that don't exist in traditional AI:
+
+### Sim-to-Real Transfer
+The gap between simulation and reality, often called the "reality gap," remains a significant challenge in Physical AI development.
+
+### Safety and Reliability
+Physical systems must be safe to operate around humans and environments, requiring robust safety mechanisms.
+
+### Real-time Constraints
+Physical systems often have strict timing requirements that must be met for proper operation.
+
+### Embodiment and Morphology
+The physical form of the system affects its capabilities and must be considered in AI design.
+
+## 1.5 Applications of Physical AI
+
+Physical AI has diverse applications across multiple domains:
+
+- **Robotics**: Autonomous robots for manufacturing, healthcare, and service industries
+- **Autonomous Vehicles**: Self-driving cars, drones, and marine vehicles
+- **Healthcare**: Surgical robots, prosthetics, and rehabilitation devices
+- **Manufacturing**: Smart factories with collaborative robots
+- **Agriculture**: Autonomous farming equipment and monitoring systems
+- **Space Exploration**: Planetary rovers and space robotics
+
+## 1.6 Mathematical Foundations
+
+Physical AI relies on several mathematical foundations:
+
+### Control Theory
+The mathematical framework for controlling dynamic systems:
+- State-space representation
+- Feedback control systems
+- Stability analysis
+
+### Mechanics and Physics Simulation
+Understanding and modeling physical systems:
+- Newtonian mechanics
+- Rigid body dynamics
+- Contact mechanics
+
+### Probabilistic Reasoning
+Dealing with uncertainty in physical systems:
+- Bayesian inference
+- Kalman filtering
+- Particle filtering
+
+## Summary
+
+This chapter introduced Physical AI as a distinct field that bridges artificial intelligence and physical systems. We explored the fundamental differences from traditional AI, core challenges, and diverse applications. The next chapters will delve deeper into specific aspects of Physical AI, including humanoid robotics, ROS 2, simulation, and AI brain architectures.
+
+## Exercises
+
+1. **Research**: Investigate three recent Physical AI applications and compare their approaches to handling the sim-to-real transfer problem.
+
+2. **Analysis**: For a household robot application, identify the different sensor modalities it would need and how they would be integrated.
+
+3. **Conceptual Design**: Design a simple Physical AI system for a specific task (e.g., object manipulation) and identify the key challenges it would face.

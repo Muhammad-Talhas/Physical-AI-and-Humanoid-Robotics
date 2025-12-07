@@ -21,3 +21,15 @@
   align-items: center;
   justify-content: center;
 }
+
+.gallerySection {
+  padding: 4rem 0;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.galleryTitle {
+  text-align: center;
+  color: var(--ifm-color-primary);
+  font-size: 2rem;
+  font-weight: 600;
+}

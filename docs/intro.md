@@ -2,46 +2,42 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+# Physical AI & Humanoid Robotics Textbook
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the **Comprehensive Guide to Robotics, AI, and Simulation**.
+
+## About This Textbook
+
+This textbook provides in-depth coverage of Physical AI and Humanoid Robotics, covering essential topics from ROS 2 fundamentals to advanced simulation techniques with NVIDIA Isaac, and Vision-Language-Action systems.
+
+### What you'll learn
+
+- **ROS 2 Foundations**: Nodes, topics, services, actions, and Python development
+- **Simulation Environments**: Gazebo and Unity for robot modeling and control
+- **Advanced Platforms**: NVIDIA Isaac Sim for sophisticated robotics simulation
+- **VLA Systems**: Perception, motion planning, human-robot interaction, and emerging trends
+
+## Interactive Learning Experience
+
+Throughout this textbook, you'll encounter interactive visualizations and examples that help illustrate complex robotics concepts:
+
+- **Robotics Concepts Visualization**: Visual representations of robotics systems and architectures
+- **ROS2 Communication Architecture**: Interactive diagrams showing node communication patterns
+- **Sensor Data Processing**: Visualizations of how robots process and interpret sensor information
+- **Motion Planning Algorithms**: Interactive examples of path planning and navigation
+
+These interactive elements are designed to enhance your understanding of robotics principles through visual and hands-on learning experiences.
 
 ## Getting Started
 
-Get started by **creating a new site**.
+Explore the comprehensive content through the navigation sidebar to begin your journey in Physical AI and Humanoid Robotics.
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+## Textbook Structure
 
-### What you'll need
+The textbook is organized into four main modules:
+- **ROS 2 Foundations**: Core concepts and development
+- **Gazebo/Unity Simulation**: Modeling and simulation techniques
+- **NVIDIA Isaac**: Advanced simulation and development
+- **Vision-Language-Action (VLA)**: Perception, planning, and interaction
 
-- [Node.js](https://nodejs.org/en/download/) version 20.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
-
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+Navigate through the chapters to build your knowledge systematically from foundational concepts to advanced applications in humanoid robotics.

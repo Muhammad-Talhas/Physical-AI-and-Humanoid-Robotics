@@ -19,7 +19,7 @@ const sidebars: SidebarsConfig = {
   */
 
   // But you can create a sidebar manually
-  tutorialSidebar: [
+  textbookSidebar: [
     {
       type: 'category',
       label: 'Physical AI & Humanoid Robotics Textbook',
