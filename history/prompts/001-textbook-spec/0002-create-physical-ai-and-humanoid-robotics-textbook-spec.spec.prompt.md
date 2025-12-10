@@ -88,4 +88,3 @@ The project specification for "Physical AI & Humanoid Robotics" textbook has bee
 - Failure modes observed: Shell script for PHR creation not found; file write error due to not reading before writing.
 - Graders run and results (PASS/FAIL): null
 - Prompt variant (if applicable): null
-- Next experiment (smallest change to try): Improve error handling for shell script execution and ensure `Read` is called before `Write` for existing files.
