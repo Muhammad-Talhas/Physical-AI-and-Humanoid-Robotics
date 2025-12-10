@@ -12,28 +12,22 @@ const config: Config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
 
-  // GitHub pages deployment config (not needed for Vercel)
-  // organizationName: 'your-username',
-  // projectName: 'Physical-AI-and-Humanoid-Robotics',
-
-  onBrokenLinks: 'warn', // Changed from 'throw' to 'warn' to avoid build failures
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
+  // Only essential i18n config
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
 
+  // Minimal preset configuration
   presets: [
     [
       'classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Remove editUrl to avoid potential issues
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -42,53 +36,8 @@ const config: Config = {
     ],
   ],
 
+  // Minimal theme config without navbar or footer that could cause issues
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
-    navbar: {
-      title: 'Textbook',
-      logo: {
-        alt: 'Physical AI & Humanoid Robotics Textbook',
-        src: 'img/logo.svg',
-      },
-      items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'textbookSidebar',
-          position: 'left',
-          label: 'Textbook',
-        },
-        {
-          href: 'https://github.com/your-username/Physical-AI-and-Humanoid-Robotics',
-          label: 'GitHub',
-          position: 'right',
-        },
-      ],
-    },
-    footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Textbook',
-          items: [
-            {
-              label: 'Introduction',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/your-username/Physical-AI-and-Humanoid-Robotics',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Project. Built with Docusaurus.`,
-    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
