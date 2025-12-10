@@ -47,7 +47,7 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
-      } satisfies Preset.Options,
+      },
     ],
   ],
 
@@ -71,7 +71,7 @@ const config: Config = {
           label: 'Textbook',
         },
         {
-          href: 'https://github.com/facebook/docusaurus',
+          href: 'https://github.com/your-username/Physical-AI-and-Humanoid-Robotics',
           label: 'GitHub',
           position: 'right',
         },
@@ -111,7 +111,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/your-username/Physical-AI-and-Humanoid-Robotics',
             },
           ],
         },
@@ -122,7 +122,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  } satisfies Preset.ThemeConfig,
+  },
 };
 
 export default config;
