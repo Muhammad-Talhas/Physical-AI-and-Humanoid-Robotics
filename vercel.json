@@ -2,5 +2,10 @@
   "installCommand": "cd Frontend && npm install",
   "buildCommand": "cd Frontend && npx docusaurus build",
   "outputDirectory": "Frontend/build",
-  "framework": "docusaurus"
+  "framework": "docusaurus",
+  "build": {
+    "env": {
+      "NODE_VERSION": "20"
+    }
+  }
 }
