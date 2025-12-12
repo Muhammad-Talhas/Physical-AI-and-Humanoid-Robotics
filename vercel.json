@@ -2,5 +2,5 @@
   "installCommand": "cd Frontend && npm install",
   "buildCommand": "cd Frontend && npx docusaurus build",
   "outputDirectory": "Frontend/build",
-  "framework": "other"
+  "framework": "docusaurus"
 }
