@@ -26,6 +26,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          // Remove editUrl to speed up build
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -34,8 +35,38 @@ const config: Config = {
     ],
   ],
 
-  // Minimal theme config without navbar or footer that could cause issues
   themeConfig: {
+    // Minimal theme config for faster build
+    navbar: {
+      title: 'Textbook',
+      logo: {
+        alt: 'Physical AI & Humanoid Robotics Textbook',
+        src: 'img/logo.svg',
+      },
+      items: [
+        {
+          type: 'docSidebar',
+          sidebarId: 'textbookSidebar',
+          position: 'left',
+          label: 'Textbook',
+        },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      links: [
+        {
+          title: 'Textbook',
+          items: [
+            {
+              label: 'Introduction',
+              to: '/docs/intro',
+            },
+          ],
+        },
+      ],
+      copyright: `Copyright © ${new Date().getFullYear()} Textbook. Built with Docusaurus.`,
+    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
