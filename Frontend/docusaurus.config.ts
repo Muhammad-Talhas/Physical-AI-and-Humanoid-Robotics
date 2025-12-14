@@ -7,19 +7,17 @@ const config: Config = {
   tagline: 'Comprehensive Guide to Robotics, AI, and Simulation',
   favicon: 'img/favicon.ico',
 
-  future: { v4: true }, // Important for Vercel build
-
+  // Set the production url of your site here
   url: 'https://physical-ai-humanoid-robotics.vercel.app',
+  // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
-
-  organizationName: 'Muhammad-Talhas', // GitHub org/user
-  projectName: 'Physical-AI-and-Humanoid-Robotics', // repo name
 
   onBrokenLinks: 'warn',
 
+  // i18n config
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'ur'], // Add at least one extra locale
+    locales: ['en'],
   },
 
   presets: [
@@ -29,22 +27,26 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
         },
-        blog: false,
+        blog: false, // Disable blog plugin which might cause issues
         theme: {
           customCss: './src/css/custom.css',
         },
-      } satisfies Preset.Options,
+      } as Preset.Options,
     ],
   ],
 
   themeConfig: {
+    // Minimal theme config
     navbar: {
       title: 'Textbook',
-      logo: { alt: 'Physical AI & Humanoid Robotics Textbook', src: 'img/logo.svg' },
+      logo: {
+        alt: 'Physical AI & Humanoid Robotics Textbook',
+        src: 'img/logo.svg',
+      },
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'textbookSidebar', // Make sure this matches sidebars.ts
+          sidebarId: 'textbookSidebar',
           position: 'left',
           label: 'Textbook',
         },
@@ -58,7 +60,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-  } satisfies Preset.ThemeConfig,
+  } as Preset.ThemeConfig,
 };
 
 export default config;
