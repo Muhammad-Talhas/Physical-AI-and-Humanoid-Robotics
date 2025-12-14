@@ -25,6 +25,8 @@ const config: Config = {
       'classic',
       {
         docs: {
+          path: './docs',
+          routeBasePath: 'docs',
           sidebarPath: './sidebars.ts',
         },
         blog: false, // Disable blog plugin which might cause issues
