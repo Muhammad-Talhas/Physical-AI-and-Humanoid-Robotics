@@ -13,7 +13,6 @@ const config: Config = {
   baseUrl: '/',
 
   onBrokenLinks: 'warn',
-  onBrokenMarkdownLinks: 'warn',
 
   // Only essential i18n config
   i18n: {
