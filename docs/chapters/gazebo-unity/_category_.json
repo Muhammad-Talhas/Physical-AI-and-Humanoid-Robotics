@@ -1,8 +1,0 @@
-{
-  "label": "Gazebo/Unity Simulation",
-  "position": 20,
-  "link": {
-    "type": "generated-index",
-    "description": "Explore robot simulation with Gazebo and Unity."
-  }
-}

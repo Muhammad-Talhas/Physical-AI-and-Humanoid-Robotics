@@ -1,8 +1,0 @@
-{
-  "label": "4. Digital Twin Simulation (Gazebo + Isaac)",
-  "position": 4,
-  "link": {
-    "type": "generated-index",
-    "description": "Simulation environments for robotics development, including Gazebo and NVIDIA Isaac Sim."
-  }
-}

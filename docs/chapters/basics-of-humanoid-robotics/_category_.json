@@ -1,8 +1,0 @@
-{
-  "label": "2. Basics of Humanoid Robotics",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "Core concepts and components of humanoid robots, including anatomy, kinematics, and control systems."
-  }
-}
