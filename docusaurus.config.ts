@@ -23,7 +23,6 @@ const config: Config = {
       {
         docs: {
           path: './docs',
-          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.ts'),
         },
         theme: {
