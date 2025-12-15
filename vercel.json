@@ -1,7 +1,6 @@
 {
-  "rootDirectory": "Frontend",
-  "installCommand": "npm install",
-  "buildCommand": "npx docusaurus build",
-  "outputDirectory": "build",
+  "installCommand": "cd Frontend && npm install",
+  "buildCommand": "cd Frontend && npx docusaurus build",
+  "outputDirectory": "Frontend/build",
   "framework": "docusaurus"
 }
