@@ -1,5 +1,5 @@
 {
-  "installCommand": "cd Frontend && npm install",
-  "buildCommand": "cd Frontend && npx docusaurus build",
-  "outputDirectory": "Frontend/build"
+  "installCommand": "npm install",
+  "buildCommand": "npx docusaurus build",
+  "outputDirectory": "build"
 }
