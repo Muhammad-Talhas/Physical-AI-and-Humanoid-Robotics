@@ -23,6 +23,7 @@ const config: Config = {
       {
         docs: {
           path: './docs',
+          routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.ts'),
         },
         theme: {
@@ -37,8 +38,8 @@ const config: Config = {
       title: 'Textbook',
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'textbookSidebar',
+          type: 'doc',
+          docId: 'intro',
           position: 'left',
           label: 'Textbook',
         },
