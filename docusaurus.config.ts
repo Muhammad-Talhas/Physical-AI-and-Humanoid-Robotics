@@ -22,6 +22,7 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          path: './docs',
           sidebarPath: require.resolve('./sidebars.ts'),
         },
         theme: {
