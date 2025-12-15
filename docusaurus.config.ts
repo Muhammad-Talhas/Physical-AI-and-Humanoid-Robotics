@@ -7,14 +7,11 @@ const config: Config = {
   tagline: 'Comprehensive Guide to Robotics, AI, and Simulation',
   favicon: 'img/favicon.ico',
 
-  // Set the production url of your site here
   url: 'https://physical-ai-humanoid-robotics.vercel.app',
-  // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
 
   onBrokenLinks: 'warn',
 
-  // i18n config
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -22,29 +19,21 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
-          path: './docs',
-          routeBasePath: 'docs',
-          sidebarPath: './sidebars.ts',
+          sidebarPath: require.resolve('./sidebars.ts'),
         },
-        blog: false, // Disable blog plugin which might cause issues
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       } as Preset.Options,
     ],
   ],
 
   themeConfig: {
-    // Minimal theme config
     navbar: {
       title: 'Textbook',
-      logo: {
-        alt: 'Physical AI & Humanoid Robotics Textbook',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           type: 'docSidebar',
@@ -53,10 +42,6 @@ const config: Config = {
           label: 'Textbook',
         },
       ],
-    },
-    footer: {
-      style: 'dark',
-      copyright: `Copyright © ${new Date().getFullYear()} Textbook. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
