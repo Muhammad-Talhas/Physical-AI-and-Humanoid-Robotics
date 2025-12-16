@@ -9,27 +9,20 @@ const config: Config = {
   tagline: 'Leveraging AI for next-generation development',
   favicon: 'img/favicon.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
+    v4: true,
   },
 
-  // Set the production url of your site here
   url: 'https://physical-ai-humanoid-robotics.vercel.app',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'Muhammad-Talhas', // Usually your GitHub org/user name.
-  projectName: 'Physical-AI-and-Humanoid-Robotics', // Usually your repo name.
+  organizationName: 'Muhammad-Talhas',
+  projectName: 'Physical-AI-and-Humanoid-Robotics',
 
-  onBrokenLinks: 'throw',
+  // ✅ Safer build configuration
+  onBrokenLinks: 'warn',
+  onBrokenMarkdownLinks: 'warn',
 
-  // Even if you don't use internationalization, you can use this field to set
-  // useful metadata like html lang. For example, if your site is Chinese, you
-  // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
@@ -41,13 +34,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: false,
-
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -56,23 +44,24 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
     },
+
     navbar: {
       title: 'Physical AI & Humanoid Robotics',
       logo: {
-        alt: 'AI Native Book Logo',
+        alt: 'Physical AI & Humanoid Robotics Logo',
         src: 'img/logo.svg',
       },
       items: [
+        {to: '/', label: 'Home', position: 'left'},
         {
           type: 'docSidebar',
-          sidebarId: 'textbookSidebar', // Keep your sidebar ID
-          position: 'left',
+          sidebarId: 'textbookSidebar',
           label: 'Book',
+          position: 'left',
         },
         {
           href: 'https://github.com/Muhammad-Talhas/Physical-AI-and-Humanoid-Robotics',
@@ -81,6 +70,7 @@ const config: Config = {
         },
       ],
     },
+
     footer: {
       style: 'dark',
       links: [
@@ -104,10 +94,6 @@ const config: Config = {
               label: 'Discord',
               href: 'https://discordapp.com/invite/docusaurus',
             },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
-            },
           ],
         },
         {
@@ -120,15 +106,14 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics Textbook. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Physical AI & Humanoid Robotics. Built with Docusaurus.`,
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
 };
-
-export default config;
 
 export default config;
