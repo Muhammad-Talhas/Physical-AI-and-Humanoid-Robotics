@@ -26,6 +26,12 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+      },
+    },
   },
 
   presets: [
@@ -35,7 +41,6 @@ const config: Config = {
         docs: {
           sidebarPath: './sidebars.ts',
         },
-        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
